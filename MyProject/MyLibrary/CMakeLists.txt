@@ -6,7 +6,7 @@ set_target_properties(MyLibrary PROPERTIES
     EXPORT_NAME MyLibrary)
 
 install(TARGETS MyLibrary
-    EXPORT MyLibraryTargets
+    EXPORT MyProjectTargets
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
     RUNTIME DESTINATION bin

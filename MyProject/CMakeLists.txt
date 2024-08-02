@@ -9,5 +9,5 @@ add_subdirectory(MyLibrary)
 add_subdirectory(MyExecutable)
 add_subdirectory(Plugins)
 
-# Export the plugin targets
-include(cmake/ExportPluginTargets.cmake)
+# Export all targets
+include(cmake/ExportTargets.cmake)

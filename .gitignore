@@ -1,1 +1,8 @@
+
 build/
+
+bin/
+lib/
+include/
+plugins/
+cmake/
