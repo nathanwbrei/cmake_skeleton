@@ -5,12 +5,12 @@ set_target_properties(PluginB PROPERTIES
     PUBLIC_HEADER pluginb.hpp
     EXPORT_NAME PluginB)
 
-target_include_directories(MyLibrary
+target_include_directories(PluginB
     PUBLIC 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:include/plugins/PluginB>)
 
-    target_link_libraries(PluginB PRIVATE PluginA MyLibrary)
+    target_link_libraries(PluginB PUBLIC PluginA MyLibrary)
 
 install(TARGETS PluginB
     EXPORT MyProjectTargets

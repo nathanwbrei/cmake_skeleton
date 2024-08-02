@@ -1,8 +1,17 @@
 
-#include <mylibrary.h>
+#include <mylibrary.hpp>
+#include <pluginb.hpp>
+#include <plugina.hpp> // Found transitively!
+
 #include <iostream>
 
-extern "C" void init() {
-    // Plugin initialization code
-    std::cout << "Hello from user plugin" << std::endl;
+extern "C" 
+void init() {
+    std::cout << "Hello from user plugin. Calling plugin a..." << std::endl;
+    say_hello_from_plugina();
+
+    std::cout << "Hello from user plugin. Calling plugin b..." << std::endl;
+    say_hello_from_pluginb();
 }
+
+

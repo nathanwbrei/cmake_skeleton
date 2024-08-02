@@ -1,4 +1,4 @@
-#include "mylibrary.h"
+#include "mylibrary.hpp"
 #include <iostream>
 
 void say_hello_from_library() {

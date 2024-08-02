@@ -2,8 +2,8 @@
 build/
 .cache/
 
-bin/
-lib/
-include/
-plugins/
-cmake/
+/bin/
+/lib/
+/include/
+/plugins/
+/cmake/
