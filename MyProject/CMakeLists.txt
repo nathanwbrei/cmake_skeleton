@@ -5,6 +5,8 @@ project(MyProject)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include(cmake/AddPlugin.cmake)
+
 add_subdirectory(MyLibrary)
 add_subdirectory(MyExecutable)
 add_subdirectory(Plugins)
