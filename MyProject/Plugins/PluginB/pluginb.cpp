@@ -8,3 +8,6 @@ void say_hello_from_pluginb() {
     say_hello_from_plugina();
 }
 
+void say_hello() {
+    say_hello_from_pluginb();
+}

@@ -6,7 +6,7 @@
 #include <iostream>
 
 extern "C" 
-void init() {
+void say_hello() {
     std::cout << "Hello from user plugin. Calling plugin a..." << std::endl;
     say_hello_from_plugina();
 
