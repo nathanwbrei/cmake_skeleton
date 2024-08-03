@@ -8,8 +8,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(MyProject REQUIRED)
 
-include(../MyProject/cmake/AddPlugin.cmake)
-
 add_plugin(UserPlugin SOURCES userplugin.cpp)
 
 target_link_libraries(UserPlugin PRIVATE MyProject::PluginB)
