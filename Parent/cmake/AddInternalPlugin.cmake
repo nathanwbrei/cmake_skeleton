@@ -16,7 +16,7 @@ macro(add_plugin plugin_name)
         SKIP_BUILD_RPATH FALSE
         BUILD_WITH_INSTALL_RPATH FALSE
         INSTALL_RPATH_USE_LINK_PATH TRUE
-        INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/plugins
+        INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/lib/${PROJECT_NAME}/plugins
     )
 
     target_link_libraries(${plugin_name} PUBLIC MyLibrary)
@@ -29,15 +29,15 @@ macro(add_plugin plugin_name)
         target_include_directories(${plugin_name}
             PUBLIC
                 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-                $<INSTALL_INTERFACE:include/plugins/${plugin_name}>
+                $<INSTALL_INTERFACE:include/${PROJECT_NAME}/plugins/${plugin_name}>
         )
     endif()
 
     # Install target
     install(TARGETS ${plugin_name}
         EXPORT ParentTargets
-        PUBLIC_HEADER DESTINATION include/plugins/${plugin_name}
-        LIBRARY DESTINATION plugins
+        PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}/plugins/${plugin_name}
+        LIBRARY DESTINATION lib/${PROJECT_NAME}/plugins
     )
 
     # Handle tests
@@ -48,7 +48,7 @@ macro(add_plugin plugin_name)
             SKIP_BUILD_RPATH FALSE
             BUILD_WITH_INSTALL_RPATH FALSE
             INSTALL_RPATH_USE_LINK_PATH TRUE
-            INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/plugins
+            INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/lib/${PROJECT_NAME}/plugins
         )
         install(TARGETS ${plugin_name}_tests RUNTIME DESTINATION bin)
         add_test(NAME ${plugin_name}_tests COMMAND ${CMAKE_INSTALL_PREFIX}/bin/${plugin_name}_tests)
