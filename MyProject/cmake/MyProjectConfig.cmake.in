@@ -1,4 +1,6 @@
 @PACKAGE_INIT@
 
+set(MYPROJECT_TEST_FRAMEWORK_INCLUDE_DIRS "@CMAKE_INSTALL_PREFIX@/include/JANA/external")
+
 include("${CMAKE_CURRENT_LIST_DIR}/MyProjectTargets.cmake")
-include("${CMAKE_CURRENT_LIST_DIR}/AddPlugin.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/AddExternalPlugin.cmake")

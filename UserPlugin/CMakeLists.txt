@@ -8,7 +8,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(MyProject REQUIRED)
 
-add_plugin(UserPlugin SOURCES userplugin.cpp)
+add_plugin(PluginC SOURCES pluginc.cpp)
+
+add_plugin(UserPlugin SOURCES userplugin.cpp TESTS userplugin_tests.cpp)
 
 target_link_libraries(UserPlugin PRIVATE MyProject::PluginB)
 

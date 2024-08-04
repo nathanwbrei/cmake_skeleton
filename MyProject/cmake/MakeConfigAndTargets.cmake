@@ -19,5 +19,5 @@ install(EXPORT MyProjectTargets
     DESTINATION cmake)
 
 # Install AddPlugin.cmake
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/AddPlugin.cmake
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/AddExternalPlugin.cmake
     DESTINATION cmake)

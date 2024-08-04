@@ -16,10 +16,10 @@ macro(add_plugin plugin_name)
         SKIP_BUILD_RPATH FALSE
         BUILD_WITH_INSTALL_RPATH FALSE
         INSTALL_RPATH_USE_LINK_PATH TRUE
-        INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/plugins
+        INSTALL_RPATH path/to/user/install
     )
 
-    target_link_libraries(${plugin_name} PUBLIC MyLibrary)
+    target_link_libraries(${plugin_name} PUBLIC MyProject::MyLibrary)
 
     # Handle public headers
     if (PLUGIN_PUBLIC_HEADER)
@@ -43,12 +43,12 @@ macro(add_plugin plugin_name)
     # Handle tests
     if (PLUGIN_TESTS)
         add_executable(${plugin_name}_tests ${PLUGIN_TESTS})
-        target_link_libraries(${plugin_name}_tests PRIVATE ${plugin_name} UnitTestFramework)
+        target_link_libraries(${plugin_name}_tests PRIVATE ${plugin_name} MyProject::UnitTestFramework)
         set_target_properties(${plugin_name}_tests PROPERTIES
             SKIP_BUILD_RPATH FALSE
             BUILD_WITH_INSTALL_RPATH FALSE
             INSTALL_RPATH_USE_LINK_PATH TRUE
-            INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/plugins
+            INSTALL_RPATH path/to/user/install
         )
         install(TARGETS ${plugin_name}_tests
             RUNTIME DESTINATION bin
