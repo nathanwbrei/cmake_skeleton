@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/ParentTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/AddExternalPlugin.cmake")

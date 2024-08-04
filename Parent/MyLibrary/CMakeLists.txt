@@ -11,7 +11,7 @@ target_include_directories(MyLibrary
         $<INSTALL_INTERFACE:include>)
 
 install(TARGETS MyLibrary
-    EXPORT MyProjectTargets
+    EXPORT ParentTargets
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
     RUNTIME DESTINATION bin

@@ -35,7 +35,7 @@ macro(add_plugin plugin_name)
 
     # Install target
     install(TARGETS ${plugin_name}
-        EXPORT MyProjectTargets
+        EXPORT ParentTargets
         PUBLIC_HEADER DESTINATION include/plugins/${plugin_name}
         LIBRARY DESTINATION plugins
     )

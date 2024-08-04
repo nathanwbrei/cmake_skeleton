@@ -19,7 +19,7 @@ macro(add_plugin plugin_name)
         INSTALL_RPATH path/to/user/install
     )
 
-    target_link_libraries(${plugin_name} PUBLIC MyProject::MyLibrary)
+    target_link_libraries(${plugin_name} PUBLIC Parent::MyLibrary)
 
     # Handle public headers
     if (PLUGIN_PUBLIC_HEADER)
@@ -35,7 +35,7 @@ macro(add_plugin plugin_name)
 
     # Install target
     install(TARGETS ${plugin_name}
-        EXPORT MyProjectTargets
+        EXPORT ParentTargets
         PUBLIC_HEADER DESTINATION include/plugins/${plugin_name}
         LIBRARY DESTINATION plugins
     )
@@ -43,7 +43,7 @@ macro(add_plugin plugin_name)
     # Handle tests
     if (PLUGIN_TESTS)
         add_executable(${plugin_name}_tests ${PLUGIN_TESTS})
-        target_link_libraries(${plugin_name}_tests PRIVATE ${plugin_name} MyProject::UnitTestFramework)
+        target_link_libraries(${plugin_name}_tests PRIVATE ${plugin_name} Parent::UnitTestFramework)
         set_target_properties(${plugin_name}_tests PROPERTIES
             SKIP_BUILD_RPATH FALSE
             BUILD_WITH_INSTALL_RPATH FALSE

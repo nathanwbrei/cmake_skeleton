@@ -11,7 +11,7 @@ set_target_properties(MyExecutable PROPERTIES
 )
 
 install(TARGETS MyExecutable
-    EXPORT MyProjectTargets
+    EXPORT ParentTargets
     RUNTIME DESTINATION bin)
 
 
