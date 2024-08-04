@@ -14,4 +14,19 @@ install(TARGETS MyExecutable
     EXPORT ParentTargets
     RUNTIME DESTINATION bin)
 
+add_test(NAME MyExecutable_BuildDir_NoPlugins COMMAND MyExecutable)
+add_test(NAME MyExecutable_InstallDir_NoPlugins COMMAND ${CMAKE_INSTALL_PREFIX}/bin/MyExecutable)
 
+add_test(NAME MyExecutable_BuildDir_PluginA COMMAND MyExecutable PluginA/libPluginA.so)
+add_test(NAME MyExecutable_InstallDir_PluginA COMMAND 
+    ${CMAKE_INSTALL_PREFIX}/bin/MyExecutable ${CMAKE_INSTALL_PREFIX}/plugins/libPluginA.so)
+
+add_test(NAME MyExecutable_BuildDir_PluginB COMMAND MyExecutable PluginA/libPluginB.so)
+add_test(NAME MyExecutable_InstallDir_PluginB COMMAND 
+    ${CMAKE_INSTALL_PREFIX}/bin/MyExecutable ${CMAKE_INSTALL_PREFIX}/plugins/libPluginB.so)
+
+add_test(NAME MyExecutable_BuildDir_PluginAB COMMAND MyExecutable PluginA/libPluginA.so PluginB/libPluginB.so)
+add_test(NAME MyExecutable_InstallDir_PluginAB COMMAND 
+    ${CMAKE_INSTALL_PREFIX}/bin/MyExecutable 
+    ${CMAKE_INSTALL_PREFIX}/plugins/libPluginA.so 
+    ${CMAKE_INSTALL_PREFIX}/plugins/libPluginB.so)

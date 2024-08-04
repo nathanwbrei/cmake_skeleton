@@ -50,9 +50,8 @@ macro(add_plugin plugin_name)
             INSTALL_RPATH_USE_LINK_PATH TRUE
             INSTALL_RPATH path/to/user/install
         )
-        install(TARGETS ${plugin_name}_tests
-            RUNTIME DESTINATION bin
-        )
+        install(TARGETS ${plugin_name}_tests RUNTIME DESTINATION bin)
+        add_test(NAME ${plugin_name}_tests COMMAND ${CMAKE_INSTALL_PREFIX}/bin/${plugin_name}_tests)
     endif()
 endmacro()
 
