@@ -3,6 +3,7 @@ add_library(MyLibrary SHARED mylibrary.cpp)
 
 set_target_properties(MyLibrary PROPERTIES
     PUBLIC_HEADER "mylibrary.hpp"
+    INSTALL_RPATH_USE_LINK_PATH TRUE
     EXPORT_NAME MyLibrary)
 
 target_include_directories(MyLibrary

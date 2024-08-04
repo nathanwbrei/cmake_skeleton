@@ -16,7 +16,7 @@ macro(add_plugin plugin_name)
         SKIP_BUILD_RPATH FALSE
         BUILD_WITH_INSTALL_RPATH FALSE
         INSTALL_RPATH_USE_LINK_PATH TRUE
-        INSTALL_RPATH path/to/user/install
+        INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/plugins
     )
 
     target_link_libraries(${plugin_name} PUBLIC Parent::MyLibrary)
@@ -48,7 +48,7 @@ macro(add_plugin plugin_name)
             SKIP_BUILD_RPATH FALSE
             BUILD_WITH_INSTALL_RPATH FALSE
             INSTALL_RPATH_USE_LINK_PATH TRUE
-            INSTALL_RPATH path/to/user/install
+            INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/plugins
         )
         install(TARGETS ${plugin_name}_tests RUNTIME DESTINATION bin)
         add_test(NAME ${plugin_name}_tests COMMAND ${CMAKE_INSTALL_PREFIX}/bin/${plugin_name}_tests)
